@@ -84,19 +84,57 @@ Machine learning Enthusiast <p>Focusing on Computer Vision and Natural Language 
     </button>
 </div>
 
-<div>
+<div id="my-works" class="mt-8 text-2xl text-blue-900  text-center">
+    Wanna see my works?
+   <br>
     My some important works:
-    <Link >
-        <a href="https://github.com/DevManTowhid/my-profile" target="_blank" class="flex items-center justify-center space-x-2">
-            <!-- <img src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" alt="GitHub Logo" width="18px" height="18px"> -->
-            <button class="border-2 border-black bg-white text-black font-bold py-2 px-4 rounded-full cursor-pointer mt-4" style="width: 150px">
-                <i class="ci ci-github ci-md"></i>
-                <span>My Profile</span>
-            </button>
-        </a>
-    </Link>
-
+  
 </div>
+<table id="my-works-table" class="table-auto border-collapse border border-gray-300 mt-4">
+    <thead>
+        <tr>
+            <th class="border border-gray-300 px-4 py-2">Project Name</th>
+            <th class="border border-gray-300 px-4 py-2">Description</th>
+            <th class="border border-gray-300 px-4 py-2">Github Link</th>
+            <th class="border border-gray-300 px-4 py-2">Live Link</th>
+        </tr>
+    </thead>
+    <tbody id="projects-table-body">
+        <!-- Project rows will be inserted here -->
+    </tbody>
+    
+</table>
+<script>
+    projects.forEach((element) => {
+        const projectname = document.createElement("td");
+        projectname.innerHTML = element.name;
+        const description = document.createElement("td");
+        description.innerHTML = element.description;
+        const githublink = document.createElement("td");
+        const githublinkElement = document.createElement("a");    
+        githublinkElement.href = element.github_link;
+        githublinkElement.target = "_blank";
+        githublinkElement.innerHTML = "Github Link";
+        githublinkElement.className = "text-blue-500 hover:underline";
+        githublink.appendChild(githublinkElement);
+        const live_link = document.createElement("td");
+        const live_linkElement = document.createElement("a");
+        live_linkElement.href = element.live_link;
+        live_linkElement.target = "_blank";
+        const row = document.createElement("tr");  
+        row.appendChild(projectname);
+        row.appendChild(description);
+        row.appendChild(githublink);
+        row.appendChild(live_link);
+        projects_table_body.appendChild(row); 
+
+
+
+
+
+
+    });
+</script>
 
 </div>
 </body>
