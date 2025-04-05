@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My profile</title>
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="projects&vercel.js"></script>
     <link
   rel="stylesheet"
   href="https://cdn.jsdelivr.net/gh/dheereshagrwal/coloured-icons@master/src/app/ci.min.css"
@@ -90,7 +91,7 @@ Machine learning Enthusiast <p>Focusing on Computer Vision and Natural Language 
     My some important works:
   
 </div>
-<table id="my-works-table" class="table-auto border-collapse border border-gray-300 mt-4">
+<table id="my-works-table" class="table-auto border-collapse border border-gray-300 mt-4 mb-4">
     <thead>
         <tr>
             <th class="border border-gray-300 px-4 py-2">Project Name</th>
@@ -105,7 +106,11 @@ Machine learning Enthusiast <p>Focusing on Computer Vision and Natural Language 
     
 </table>
 <script>
-    projects.forEach((element) => {
+    
+    document.addEventListener("DOMContentLoaded",() =>{
+        console.log("running script");
+        projects.forEach((element) => {
+        const projects_table_body = document.getElementById("projects-table-body");
         const projectname = document.createElement("td");
         projectname.innerHTML = element.name;
         const description = document.createElement("td");
@@ -115,18 +120,26 @@ Machine learning Enthusiast <p>Focusing on Computer Vision and Natural Language 
         githublinkElement.href = element.github_link;
         githublinkElement.target = "_blank";
         githublinkElement.innerHTML = "Github Link";
-        githublinkElement.className = "text-blue-500 hover:underline";
+        githublinkElement.class = "text-blue-500 hover:underline";
         githublink.appendChild(githublinkElement);
         const live_link = document.createElement("td");
         const live_linkElement = document.createElement("a");
         live_linkElement.href = element.live_link;
         live_linkElement.target = "_blank";
+        live_linkElement.innerHTML = "Live Link";
+        live_linkElement.class = "text-blue-500 hover:underline";
+        live_link.appendChild(live_linkElement);
         const row = document.createElement("tr");  
         row.appendChild(projectname);
         row.appendChild(description);
         row.appendChild(githublink);
         row.appendChild(live_link);
         projects_table_body.appendChild(row); 
+        document.querySelectorAll("td").forEach((element) => {
+  element.classList.add("border", "border-gray-300", "text-center", "px-4");
+});
+
+      
 
 
 
@@ -134,6 +147,7 @@ Machine learning Enthusiast <p>Focusing on Computer Vision and Natural Language 
 
 
     });
+    })
 </script>
 
 </div>
